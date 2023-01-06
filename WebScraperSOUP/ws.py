@@ -4,6 +4,8 @@ import requests
 import matplotlib.pyplot as plt
 import streamlit as st
 import lxml
+import seaborn as sns
+
     
 paginas = ("https://listado.mercadolibre.cl/inmuebles/arriendo-casa-la-florida_Desde_49_NoIndex_True","https://listado.mercadolibre.cl/inmuebles/arriendo-casa-la-florida_NoIndex_True#D[A:arriendo%20casa%20la%20florida,on]","https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto_Desde_49_NoIndex_True", "https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto", "https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto_Desde_97_NoIndex_True" )
 df = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=['precio', 'detalle1', 'detalle2'])
@@ -53,6 +55,7 @@ df_ordenado.rename(columns={'detalle1': 'metros'}, inplace=True)
 
 
 st.table(df_ordenado)
+st.heatmap([df_ordenado['precio'], df_ordenado['metros']], xlabel="Columna 1", ylabel="Columna 2")
 #st.table(df_ordenado2[0])
 
 # Supongamos que tenemos un data frame llamado `df` con dos filas y tres columnas
