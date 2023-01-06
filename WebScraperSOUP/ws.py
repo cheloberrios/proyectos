@@ -33,13 +33,28 @@ df['precio'] = df['precio'].fillna(1)
 df['precio'] = df['precio'].replace('\.', '', regex=True)
 
 df['precio'] = df['precio'].astype(float)
-print(df)
+#print(df)
 df_ordenado = df.sort_values(by="precio")
 print("termino 0")
 print("termino 1")
 
+df_ordenado['detalle1'] = df_ordenado['detalle1'].str.split(' ')
+
+df_ordenado2 = pd.DataFrame
+df_ordenado2 = df_ordenado['detalle1'].apply(lambda x: pd.Series(x))
+valores = df_ordenado2[0]
+df_ordenado['detalle1'] = valores
+df_ordenado.rename(columns={'detalle1': 'metros'}, inplace=True)
+
+
+
+
+#df_ordenado['detalle1'] = df_ordenado2['0']
+
 
 st.table(df_ordenado)
+#st.table(df_ordenado2[0])
+
 # Supongamos que tenemos un data frame llamado `df` con dos filas y tres columnas
 
 # Agregamos una fila al final del data frame
