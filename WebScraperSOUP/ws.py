@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import lxml
 import seaborn as sns
+import plotly.express as px
+
 
     
 paginas = ("https://listado.mercadolibre.cl/inmuebles/arriendo-casa-la-florida_Desde_49_NoIndex_True","https://listado.mercadolibre.cl/inmuebles/arriendo-casa-la-florida_NoIndex_True#D[A:arriendo%20casa%20la%20florida,on]","https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto_Desde_49_NoIndex_True", "https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto", "https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto_Desde_97_NoIndex_True" )
@@ -49,13 +51,35 @@ df_ordenado['detalle1'] = valores
 df_ordenado.rename(columns={'detalle1': 'metros'}, inplace=True)
 
 
+col1 = df_ordenado['metros']
+col2 = df_ordenado['precio']
+
+df_ordenado.drop(['detalle2'], axis=1, inplace=True)
+df_ordenado.drop([0, 1], axis=0, inplace=True)
+df_ordenado.drop([224], axis=0, inplace=True)
 
 
-#df_ordenado['detalle1'] = df_ordenado2['0']
-
+fig = px.scatter(df_ordenado, x='metros', y='precio')
+st.plotly_chart(fig)
 
 st.table(df_ordenado)
-st.heatmap([df_ordenado['precio'], df_ordenado['metros']], xlabel="Columna 1", ylabel="Columna 2")
+df_ordenado['metros'] = df_ordenado['metros'].astype(float)
+
+
+corr = df_ordenado.corr()
+st.table(corr)
+
+fig = px.imshow(corr,
+                x=corr.columns,
+                y=corr.columns,
+                color_continuous_scale='magma',
+                title='Correlación entre var1 y var2')
+
+st.plotly_chart(fig)
+
+#st.heatmap([col1, col2], xlabel="Columna 1", ylabel="Columna 2")
+
+df_ordenado.info()
 #st.table(df_ordenado2[0])
 
 # Supongamos que tenemos un data frame llamado `df` con dos filas y tres columnas
