@@ -9,7 +9,7 @@ import plotly.express as px
 
 
 #me traigo la data desde la paginas y creo el data frame que lo va a contoner 
-paginas = ("https://listado.mercadolibre.cl/inmuebles/arriendo-casa-la-florida_Desde_49_NoIndex_True","https://listado.mercadolibre.cl/inmuebles/arriendo-casa-la-florida_NoIndex_True#D[A:arriendo%20casa%20la%20florida,on]","https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto_Desde_49_NoIndex_True", "https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto", "https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto_Desde_97_NoIndex_True", "https://listado.mercadolibre.cl/inmuebles/casa-arriendo-vitacura_OrderId_PRICE*DESC_NoIndex_True" )
+paginas = ("https://listado.mercadolibre.cl/inmuebles/arriendo-casa-la-florida_Desde_49_NoIndex_True","https://listado.mercadolibre.cl/inmuebles/arriendo-casa-la-florida_NoIndex_True#D[A:arriendo%20casa%20la%20florida,on]","https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto_Desde_49_NoIndex_True", "https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto", "https://listado.mercadolibre.cl/inmuebles/casas/arriendo/propiedades-usadas/rm-metropolitana/puente-alto/arriendo-casa-puente-alto_Desde_97_NoIndex_True" )
 df = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=['precio', 'detalle1', 'detalle2'])
 
 #Iteracion para sacar una scraping por cada pagina en la lista de paginas 
@@ -57,7 +57,7 @@ col2 = df_ordenado['precio']
 # elimino filas y COLUMNAS.  saco valores que rompen la visualizacion 
 
 df_ordenado.drop([0, 1], axis=0, inplace=True)
-df_ordenado.drop([221, 29,226,227,262,263,264,265,266,256,241,237], axis=0, inplace=True)
+df_ordenado[df_ordenado['precio'] < 750000]
 
 
 fig = px.scatter(df_ordenado, x='metros', y='precio')
