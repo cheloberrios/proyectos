@@ -4,12 +4,12 @@
 #(Opcional) Ejemplo: minimum([])  debería devolver False
 
 def minimo(lista):
-    valor_minimo = lista[0]
+    valor_max = lista[0]
     for i in lista:
-        if i < valor_minimo:
-            valor_minimo = i
-    return valor_minimo   
+        if i > valor_max:
+            valor_max = i
+    return valor_max   
 
-print(minimo([9,2,3,4]))
+print(minimo([37,2,1,-9]))
 
 
