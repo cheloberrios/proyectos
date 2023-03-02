@@ -6,10 +6,8 @@
 #Ejemplo: reverse_list([37,2,1,-9]) debería devolver [-9,1,2,37]
 
 def invertida(lista):
-    for i in lista:
-        numero1 = lista[0]
-        lista.append(numero1)
-        del lista[0]
+    for i in range(len(lista)//2):
+        lista[i], lista[len(lista)-i-1] = lista[len(lista)-i-1], lista[i]
         print(lista)
     print(lista)
 invertida([37,2,1,-9])
