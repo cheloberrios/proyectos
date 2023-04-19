@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pauta Alimenticia Barf para Perros</title>
+  </head>
+  <body>
+    <h1>Pauta Alimenticia Barf para Perros</h1>
+    <form method="POST" action="{{ url_for('calculate') }}">
+      <label for="peso">Peso del perro en kg:</label><br>
+      <input type="number" id="peso" name="peso" step="0.01" required><br>
+      <label for="tamano">Tamaño del perro:</label><br>
+      <select id="tamano" name="tamano" required>
+        <option value="pequeño">Pequeño</option>
+        <option value="mediano">Mediano</option>
+        <option value="grande">Grande</option>
+      </select><br>
+      <label for="actividad">Actividad del perro:</label><br>
+      <select id="actividad" name="actividad" required>
+        <option value="baja">Baja</option>
+        <option value="media">Media</option>
+        <option value="alta">Alta</option>
+      </select><br>
+      <label for="castrado">¿Está el perro castrado?</label><br>
+      <input type="radio" id="castrado_si" name="castrado" value="si" required>
+      <label for="castrado_si">Sí</label><br>
+      <input type="radio" id="castrado_no" name="castrado" value="no">
+      <label for="castrado_no">No</label><br>
+      <label for="raza">Raza del perro:</label><br>
+      <input type="text" id="raza" name="raza" required><br>
+      <label for="edad">Edad del perro en años:</label><br>
+      <input type="number" id="edad" name="edad" step="0.01" required><br><br>
+      <input type="submit" value="Calcular">
+    </form>
+  </body>
+</html>

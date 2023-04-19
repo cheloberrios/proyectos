@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pauta Alimenticia Barf para Perros prueba</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Pauta alimenticia Barf</h1>
+        <p class="subtitle">Proporción de alimentos recomendada para tu perro:</p>
+        <ul class="list">
+            <li class="list-item">Total: {{ pauta.total }} gramos</li>
+            <li class="list-item">Carne: {{ pauta.carne }} gramos</li>
+            <li class="list-item">Carne: {{ pauta.carne }} gramos</li>
+            <li class="list-item">Huesos: {{ pauta.huesos }} gramos</li>
+            <li class="list-item">Frutas y verduras: {{ pauta.frutas_verduras }} gramos</li>
+            <li class="list-item">Lácteos: {{ pauta.lacteos }} gramos</li>
+            <li class="list-item">Aceites y grasas: {{ pauta.aceites_grasas }} gramos</li>
+        </ul>
+        <div class="botones">
+            <a href="#" class="buy-button">Comprar pauta semanal</a>
+            <a href="#" class="buy-button">Comprar pauta mensual</a>
+            <a href="#" class="try-button">Quiero probar11</a>
+        </div>
+    </div>
+</body>
+</html>

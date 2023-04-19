@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pauta Alimenticia Barf para Perros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Calculadora de Pauta Alimenticia Barf para Perros</h1>
+    <form method="POST" action="{{ url_for('calculate') }}">
+        <label for="peso">Peso (kg): </label>
+        <input type="number" name="peso" required><br>
+
+        <label for="tamano">Tamaño: </label>
+        <select name="tamano">
+            <option value="pequeño">Pequeño</option>
+            <option value="mediano">Mediano</option>
+            <option value="grande">Grande</option>
+        </select><br>
+
+        <label for="actividad">Actividad: </label>
+        <input type="radio" name="actividad" value="baja" checked> Baja
+        <input type="radio" name="actividad" value="alta"> Alta<br>
+
+        <label for="castrado">Castrado: </label>
+        <input type="checkbox" name="castrado" value="si"><br>
+
+        <label for="raza">Raza: </label>
+        <input type="text" name="raza" required><br>
+
+        <label for="edad">Edad (años): </label>
+        <input type="number" name="edad" required><br>
+
+        <input type="submit" value="Calcular Pauta Alimenticia">
+    </form>
+</body>
+</html>
